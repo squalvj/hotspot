@@ -52,6 +52,8 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:penggunas',
             'password' => 'required|min:6|confirmed',
+            'alamat' => 'required|max:100',
+            'telepon' => 'required|max:20',
         ]);
     }
 
@@ -67,6 +69,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'telepon' => $data['telepon'],
+            'alamat' => $data['alamat'],
         ]);
     }
 
@@ -85,8 +89,8 @@ class RegisterController extends Controller
      *
      * @return \Illuminate\Contracts\Auth\StatefulGuard
      */
-    protected function guard()
-    {
-        return Auth::guard('pengguna');
-    }
+    // protected function guard()
+    // {
+    //     return Auth::guard('pengguna'); << buat redirect langsung login
+    // }
 }

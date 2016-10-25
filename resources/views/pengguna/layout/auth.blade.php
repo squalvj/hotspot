@@ -34,8 +34,9 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/pengguna') }}">
-                    Laravel Multi Auth Guard: Pengguna
+                <a class="navbar-brand" style="margin-top:0px" href="{{ url('/') }}">
+                    <img class="pull-left" style="width:50px; height:50px; position:relative; bottom:10px" src="{{ asset('assets/gambar/logo.png') }}">
+                    <span> EZ NET</span>
                 </a>
             </div>
 

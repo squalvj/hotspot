@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading text-center">Register User</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/pengguna/register') }}">
                         {{ csrf_field() }}
@@ -67,9 +67,41 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <label for="telepon" class="col-md-4 control-label">No Handphone</label>
+
+                            <div class="col-md-6">
+                                <input type="text" name="telepon" class="form-control"> 
+
+                                @if ($errors->has('telepon'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('telepon') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                            
+                        <div class="form-group">
+                            <label for="alamat" class="col-md-4 control-label">Alamat</label>
+
+                            <div class="col-md-6">
+                                <textarea class="form-control" name="alamat" cols="5"></textarea>
+
+                                @if ($errors->has('alamat'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('alamat') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-4 col-md-5">
                                 <button type="submit" class="btn btn-primary">
                                     Register
+                                </button>
+
+                                <button type="reset" class="btn btn-danger">
+                                    Reset
                                 </button>
                             </div>
                         </div>

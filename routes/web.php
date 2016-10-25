@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('depan/layout/index');
 });
 
 //Pengguna Login
@@ -30,3 +30,22 @@ Route::post('pengguna/password/reset', 'PenggunaAuth\ResetPasswordController@res
 Route::get('pengguna/password/reset', 'PenggunaAuth\ForgotPasswordController@showLinkRequestForm');
 Route::get('pengguna/password/reset/{token}', 'PenggunaAuth\ResetPasswordController@showResetForm');
 
+
+//Admin Login
+Route::get('admin/login', 'AdminAuth\LoginController@showLoginForm');
+Route::post('admin/login', 'AdminAuth\LoginController@login');
+Route::post('admin/logout', 'AdminAuth\LoginController@logout');
+
+//Admin Register
+Route::get('admin/register', 'AdminAuth\RegisterController@showRegistrationForm');
+Route::post('admin/register', 'AdminAuth\RegisterController@register');
+
+//Admin Passwords
+Route::post('admin/password/email', 'AdminAuth\ForgotPasswordController@sendResetLinkEmail');
+Route::post('admin/password/reset', 'AdminAuth\ResetPasswordController@reset');
+Route::get('admin/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm');
+Route::get('admin/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
+
+Route::group(['middleware' => 'auth'], function(){
+
+});
