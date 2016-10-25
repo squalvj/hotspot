@@ -46,6 +46,6 @@ Route::post('admin/password/reset', 'AdminAuth\ResetPasswordController@reset');
 Route::get('admin/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm');
 Route::get('admin/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
 
-Route::group(['middleware' => 'auth'], function(){
-
+Route::group(['middleware' => 'pengguna'], function(){
+	Route::get('/pengguna/konfirmasi', 'PenggunaAuth\Pengguna@konfirmasi');
 });

@@ -18,7 +18,7 @@ class RedirectIfNotPengguna
 	public function handle($request, Closure $next, $guard = 'pengguna')
 	{
 	    if (!Auth::guard($guard)->check()) {
-	        return redirect('/login');
+	        return redirect('/pengguna/login');
 	    }
 
 	    return $next($request);
